@@ -29,6 +29,9 @@ def main():
     X = train_df.drop(columns=[config['target_column']])
     y = train_df[config['target_column']]
     X_test = test_df.copy()
+    print(X.head(10))
+    print(X.columns)
+    exit()
     
     # --- OPTIONAL: Log Transform Target ---
     use_log_transform = config.get('log_transform_target', False)
