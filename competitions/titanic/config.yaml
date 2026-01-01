@@ -1,0 +1,26 @@
+competition_name: titanic
+task: classification
+id_column: PassengerId
+target_column: Survived
+features:
+  numeric:
+    - Age
+    - Fare
+    - SibSp
+    - Parch
+    - FamilySize
+    - IsAlone
+  categorical:
+    - Pclass
+    - Sex
+    - Embarked
+
+model:
+  name: logistic_regression
+  params:
+    max_iter: 20000
+    verbose: 0
+
+cv:
+  n_splits: 5
+  scoring: accuracy

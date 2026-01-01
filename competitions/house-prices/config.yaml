@@ -1,0 +1,30 @@
+competition_name: house-prices-advanced-regression-techniques
+task: regression
+id_column: Id
+target_column: SalePrice
+log_transform_target: true # Optional flag for log1p transform
+
+features:
+  numeric:
+    - LotArea
+    - YearBuilt
+    - 1stFlrSF
+    - 2ndFlrSF
+    - FullBath
+    - BedroomAbvGr
+    - TotRmsAbvGrd
+  categorical:
+    - MSZoning
+    - Neighborhood
+    - KitchenQual
+    - SaleCondition
+
+model:
+  name: ridge
+  params:
+    alpha: 1.0
+    random_state: 42
+
+cv:
+  n_splits: 5
+  scoring: neg_root_mean_squared_error
