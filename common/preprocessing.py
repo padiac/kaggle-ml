@@ -26,7 +26,7 @@ def get_preprocessor(numeric_features, categorical_features):
         
     if categorical_features:
         categorical_transformer = Pipeline(steps=[
-            ('imputer', SimpleImputer(strategy='most_frequent')),
+            ('imputer', SimpleImputer(strategy='constant', fill_value='None')),
             ('encoder', OneHotEncoder(handle_unknown='ignore'))
         ])
         transformers.append(('cat', categorical_transformer, categorical_features))

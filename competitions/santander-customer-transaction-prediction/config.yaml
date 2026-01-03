@@ -1,0 +1,21 @@
+competition_name: santander-customer-transaction-prediction
+task: classification
+target_column: target
+id_column: ID_code
+
+# Features will be auto-detected (var_0 to var_199)
+features:
+  numeric: []
+  categorical: []
+
+model:
+  name: gbm
+  params:
+    n_estimators: 100
+    learning_rate: 0.1
+    max_depth: 3
+    random_state: 42
+
+cv:
+  n_splits: 5
+  scoring: roc_auc
