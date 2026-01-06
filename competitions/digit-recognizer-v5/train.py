@@ -84,7 +84,7 @@ def main():
         print("Plotting Loss Curve...")
         plt.figure(figsize=(10, 6))
         plt.plot(trained_model.loss_curve_, label='Training Loss')
-        if hasattr(trained_model, 'validation_scores_') and trained_model.validation_scores_ is not None:
+        if hasattr(trained_model, 'validation_scores_') and trained_model.validation_scores_ is not None and len(trained_model.validation_scores_) > 0:
              # Validation scores in MLP are accuracy/score, not loss. But useful to plot.
              # Note: they might be on different scales.
              plt.plot(trained_model.validation_scores_, label='Validation Score')
@@ -96,11 +96,12 @@ def main():
         plt.grid(True)
         
         # Annotate final values
-        final_loss = trained_model.loss_curve_[-1]
-        plt.text(len(trained_model.loss_curve_)-1, final_loss, f'{final_loss:.4f}', ha='left', va='bottom')
-        print(f"Final Training Loss: {final_loss:.5f}")
+        if len(trained_model.loss_curve_) > 0:
+            final_loss = trained_model.loss_curve_[-1]
+            plt.text(len(trained_model.loss_curve_)-1, final_loss, f'{final_loss:.4f}', ha='left', va='bottom')
+            print(f"Final Training Loss: {final_loss:.5f}")
 
-        if hasattr(trained_model, 'validation_scores_') and trained_model.validation_scores_ is not None:
+        if hasattr(trained_model, 'validation_scores_') and trained_model.validation_scores_ is not None and len(trained_model.validation_scores_) > 0:
              final_val_score = trained_model.validation_scores_[-1]
              plt.text(len(trained_model.validation_scores_)-1, final_val_score, f'{final_val_score:.4f}', ha='left', va='top')
              print(f"Final Validation Score: {final_val_score:.5f}")
