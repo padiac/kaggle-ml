@@ -13,6 +13,6 @@ A dedicated workspace for experimenting with YOLO (You Only Look Once) object de
 ## Getting Started
 
 1.  Run `python scripts/sanity_check.py` to verify dependencies.
-2.  Add your dataset to `datasets/`.
+2.  Add your dataset to `data/`.
 3.  Configure model in `configs/yolo_baseline.yaml`.
 4.  Train: `python scripts/train.py`
