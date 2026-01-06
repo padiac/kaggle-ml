@@ -1,0 +1,18 @@
+# YOLO Baseline Configuration
+model:
+  type: yolo_v8_n # Example model type
+  pretrained: true
+
+data:
+  path: ../../../data/coco128 # Global data folder
+  # path: ../datasets/coco128 # Use this if keeping data local
+  train: images/train
+  val: images/val
+  nc: 80 # Number of classes
+  names: [ 'person', 'bicycle', 'car', '...' ]
+
+hyperparameters:
+  epochs: 10
+  batch_size: 16
+  img_size: 640
+  learning_rate: 0.01

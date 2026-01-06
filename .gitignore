@@ -24,3 +24,4 @@ kaggle.json
 # Project specific
 outputs/
 models/
+*.pt
